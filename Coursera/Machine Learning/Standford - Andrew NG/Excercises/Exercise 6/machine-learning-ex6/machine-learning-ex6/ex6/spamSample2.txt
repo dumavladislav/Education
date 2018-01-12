@@ -1,0 +1,7 @@
+Hi again Vlad,
+
+I have checked in the enrichment folder for DnB with all the components I was able to build at this moment.
+
+I followed the Preventel structure when adding the DnB call to the All Access Strategy. 
+
+Please take a look when you have time

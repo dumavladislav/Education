@@ -1,0 +1,9 @@
+mvn install:install-file -Dfile=C:/app/client/dumavla/product/12.1.0/client_1/jdbc/lib/ojdbc7.jar -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0 -Dpackaging=ja
+r
+
+
+<dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc7</artifactId>
+            <version>12.1.0</version>
+        </dependency>

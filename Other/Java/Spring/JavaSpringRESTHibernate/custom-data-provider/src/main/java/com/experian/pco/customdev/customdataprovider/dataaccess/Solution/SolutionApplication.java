@@ -1,4 +1,4 @@
-package com.experian.pco.customdev.customdataprovider.dataaccess;
+package com.experian.pco.customdev.customdataprovider.dataaccess.Solution;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,19 +11,20 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "APPLICATION", schema = "EDA_TENANT1")
-public class PcoApplication {
+@Table (name = "APPLICATION"/*, schema = "EDA_TENANT1"*/)
+public class SolutionApplication {
     @Id
     private Long ids_application;
     private String internalid;
     private String status;
+    private String batchactionid;
     
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY,
             mappedBy = "ids_application")
-    private Set<Applicant> applicants = new HashSet<>();
+    private Set<SolutionApplicant> applicants = new HashSet<>();
     
-    PcoApplication() {
+    SolutionApplication() {
         super();
     }
 
@@ -39,16 +40,26 @@ public class PcoApplication {
         return internalid;
     }
 
-    public void setInternalid(String internalid) {
-        this.internalid = internalid;
-    }
-
     public String getStatus() {
         return status;
     }
+    
+	public String getBatchActionId() {
+		return batchactionid;
+	}
 
-    public Set<Applicant> getApplicants() {
+	public void setBatchActionId(String batchactionid) {
+		this.batchactionid = batchactionid;
+	}
+
+    public Set<SolutionApplicant> getApplicants() {
         return applicants;
     }
+
+	public void setInternalid(String internalid) {
+		this.internalid = internalid;
+	}
+
+
     
 }

@@ -1,0 +1,11 @@
+STARTUP_FILES:
+
+- Initial configuration to start with
+
+Spring MVC Demo:
+
+- MVC approach;
+- JSP induction;
+- Reading properties files to Model;
+- Replacement of standard validation error message with custome one from "resources/messages.properties";
+- Creation of custom annotation;

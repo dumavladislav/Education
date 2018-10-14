@@ -1,0 +1,5 @@
+Get latest release from 
+
+https://repo.spring.io/release/org/springframework/spring/
+
+copy all files from "lib" to project lib

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="spring-security-demo-04-bootstrap-login-form:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="spring-security-demo.war">
+      <element id="artifact" artifact-name="spring-security-demo-04-bootstrap-login-form:war exploded" />
+    </root>
+  </artifact>
+</component>

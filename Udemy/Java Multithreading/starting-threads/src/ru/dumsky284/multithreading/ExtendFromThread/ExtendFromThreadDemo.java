@@ -1,4 +1,4 @@
-package ru.dumsky284.multithreading;
+package ru.dumsky284.multithreading.ExtendFromThread;
 
 public class ExtendFromThreadDemo {
 

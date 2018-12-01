@@ -1,0 +1,16 @@
+# version of docker compose that we are using. Required string
+version: '3'
+
+# We are telling docker compose "hey, docker-compose, please create the following services (containers)"
+services:
+  redis-server:
+    image: 'redis'
+
+  node-app:
+    # restart policy
+    restart: on-failure # restart the container if exit code!=0
+    # instead of specifying the image in this case we want to build the container from the image (dockerfile)
+    build: .
+    # ports mapping. "-" means array record
+    ports:
+      - "4001:8081"

@@ -16,9 +16,11 @@ function fib(index) {
 
 // when we get new message in redis - perform the callback function
 sub.on('message', (channel, message) => {
+    console.log("YOOOOO!!!");
     // message actually holds index entered in the form
     // hset - hashSet with name 'values'
     redisClient.hset('values', message, fib(parseInt(message)));
 });
 
 sub.subscribe('insert');
+console.log("!!! STARTED !!!");

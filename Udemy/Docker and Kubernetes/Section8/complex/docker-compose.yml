@@ -45,3 +45,8 @@ services:
     volumes:
       - /app/node_modules
       - ./worker:/app
+    environment:
+      # when we use docker compose, we can use service name instead of IP or host name
+      - REDIS_HOST=redis
+      # take from docker hub from the documentation
+      - REDIS_PORT=6379

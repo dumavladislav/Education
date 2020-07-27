@@ -1,0 +1,36 @@
+---
+
+- name: Loops Playbook
+  hosts: GCE_UBUNTU
+  become: yes
+
+  tasks:
+
+  - name: Say Hello
+    debug: msg="Hello, {{ item }}!!!"
+    loop:
+       - "Vasia"
+       - "Petya"
+       - "Vanya"
+       - "Venya"
+
+
+  - name: Loop Until example
+    shell: echo -n Z >> myfile.txt && cat myfile.txt
+    register: output
+    delay: 2							# delay between the iterations (optional)
+    retries: 10							# Maximum amount of iterations (optional)
+    until: output.stdout.find("ZZZZ") == false
+
+
+  - name: Print final Output
+    debug:
+        var: output.stdout
+
+
+  - name: Install several packages
+    apt: name={{ item }} state=latest
+    loop:
+      - tree
+      - git
+      - mysql-client

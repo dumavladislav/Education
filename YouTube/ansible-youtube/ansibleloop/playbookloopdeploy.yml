@@ -1,0 +1,63 @@
+---
+- name: Install Apache and upload my Web Page
+  hosts: all
+  become: yes
+
+  vars:
+     source_folder: ./website
+     destin_folder: /var/www/html
+
+  tasks:
+
+  - block:      # ============= Block for RedHat ===============
+
+      - name: Install Apache Web Server for RedHat
+        yum: name=httpd state=latest
+
+      - name: Start Web Servers and Make It Enabled on boot for RedHat
+        service: name=httpd state=started enabled=yes
+
+    when: ansible_os_family == "RedHat"
+
+
+  - block:      # ============= Block for Debian ===============
+
+      - name: Install Apache Web Server for Debian
+        apt: name=apache2 state=latest
+
+      - name: Start Web Servers for Debian
+        service: name=apache2 state=started enabled=yes
+        
+
+    when: ansible_os_family == "Debian"
+
+  - debug: 
+       var: ansible_os_family
+
+
+  - name: Copy My Homepage to Servers
+#    copy: src={{ source_folder }}/{{ item }} dest={{ destin_folder }} mode=0555
+#    loop:
+#       - "index.html"
+#       - "image1.png"
+#       - "index2.html"
+#       - "image2.png"
+# ===== Another method =====
+    copy: src={{ item }} dest={{ destin_folder }} mode=0555
+    with_fileglob: "{{ source_folder }}/*.*"
+
+    notify: 
+       - Restart Apache RedHat
+       - Restart Apache Debian
+
+
+  handlers:
+  - name: Restart Apache RedHat
+    service: name=httpd state=restarted
+    when: ansible_os_family == "RedHat"
+
+
+  - name: Restart Apache Debian
+    service: name=apache2 state=restarted
+    when: ansible_os_family == "Debian"
+

@@ -1,0 +1,14 @@
+[GCE_UBUNTU]
+35.188.32.17
+
+[FRONT_SERVERS_DEV]
+raspberry_pi	ansible_host=192.168.1.64	owner=ivan
+
+[ANSIBLE_SERVERS_DEV]
+ubuntu_server	ansible_host=192.168.1.53	ansible_sudo_pass=S746em99	owner=petya
+
+[DEV_SERVERS:children]
+BACKEND_SERVERS_DEV
+FRONT_SERVERS_DEV
+ANSIBLE_SERVERS_DEV
+

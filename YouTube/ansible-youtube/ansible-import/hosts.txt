@@ -1,0 +1,14 @@
+[GCE_UBUNTU]
+ansible-slave-1 ansible_host=35.188.32.172
+
+[GCE_CENTOS_8]
+ansible-slave-2 ansible_host=34.71.164.59
+
+[GCE_CENTOS_6]
+ansible-slave-3	ansible_host=35.202.205.143
+
+[DEV_SERVERS:children]
+GCE_UBUNTU
+GCE_CENTOS_8
+GCE_CENTOS_6
+

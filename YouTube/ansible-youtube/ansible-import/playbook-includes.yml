@@ -1,0 +1,14 @@
+---
+- name: Includes Playbook example
+  hosts: all
+  become: yes
+
+  vars:
+    myText: "Privet ot Dumsky284"
+
+  tasks:
+    - name: Pinging Servers
+      ping:
+
+    - include: create_folders.yml
+    - include: create_files.yml   myText="Hello from Vladislav"

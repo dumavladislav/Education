@@ -11,4 +11,4 @@
       ping:
 
     - include: create_folders.yml
-    - include: create_files.yml   myText="Hello from Vladislav"
+    - include: create_files.yml myText="Hello from Vladislav"

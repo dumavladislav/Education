@@ -1,6 +1,6 @@
 ---
 - name: Deploy Web Application using Ansible roles
-  hosts: all
+  hosts: "{{ MYHOSTS }}"
   become: yes
 
   roles:

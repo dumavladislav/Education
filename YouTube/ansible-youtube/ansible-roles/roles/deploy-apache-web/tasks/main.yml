@@ -38,7 +38,6 @@
   copy: src={{ item }} dest={{ destin_folder }} mode=0555
   loop:
       - "image1.png"
-      - "index2.html"
       - "image2.png"
 
   notify: 

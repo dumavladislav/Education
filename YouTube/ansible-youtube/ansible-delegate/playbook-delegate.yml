@@ -12,9 +12,9 @@
       dest: /home/file1.txt
       mode: 0755
       content:
-      This is File 1
-      Hello World (English)
-      In Russian {{ myText }}
+        This is File 1
+        Hello World (English)
+        In Russian {{ myText }}
     delegate_to: GCE_CENTOS_8
 
   - name: Create File 2
@@ -22,6 +22,6 @@
       dest: /home/file2.txt
       mode: 0755
       content:
-      This is File 2
-      In chinese ConIChua
-      In Russian {{ myText }}
+        This is File 2
+        In chinese ConIChua
+        In Russian {{ myText }}

@@ -11,7 +11,11 @@
     ignore_errors: yes
 
   - name: Task number 2
-    shell: echo Hello World!!!
+    shell: ls -la /etc/
+    register: results
+
+  - debug:
+      var: results
 
   - name: Task number 3
     shell: echo Privet Mir!!!

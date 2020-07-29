@@ -14,7 +14,7 @@
         This is File 1
         Hello World (English)
         In Russian {{ myText }}
-    delegate_to: GCE_CENTOS_8
+    delegate_to: ansible-slave-2
 
   - name: Create File 2
     copy:

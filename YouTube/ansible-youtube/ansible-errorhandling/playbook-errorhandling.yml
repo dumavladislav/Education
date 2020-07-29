@@ -2,6 +2,7 @@
 
 - name: Error Handling Playbook example
   hosts: all
+#  any_errors_fatal: true   # Full stop if any error occurred
   become: yes
 
   tasks:

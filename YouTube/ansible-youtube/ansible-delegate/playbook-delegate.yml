@@ -9,7 +9,8 @@
   tasks:
 
   - name: Unregister Server from Load Balancer
-    shell: echo Server {{ inventory_hostname }} was unregistered from Load Balancer. Node name is {{ ansible_nodename }} >> /home/log.txt
+    become: no
+    shell: echo Server {{ inventory_hostname }} was unregistered from Load Balancer. Node name is {{ ansible_nodename }} >> ~/log.txt
     delegate_to: 127.0.0.1
 
   - name: Create File 1
@@ -28,3 +29,16 @@
         This is File 2
         In chinese ConIChua
         In Russian {{ myText }}
+
+  - name: Reboot my Servers
+    shell: sleep 3 && reboot now
+    async: 1
+    poll: 0
+
+  - name: Wait till my servers come up online
+    wait_for:
+      host: "{{ inventory_hostname }}"
+      state: started
+      delay: 5
+      timeout: 40
+    delegate_to: 127.0.0.1        # Wait needs to be performed on master, because servers are being rebooted

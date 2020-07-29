@@ -8,6 +8,7 @@
 
   - name: Task number 1
     yum: name=treeeee state=latest
+    ignore_errors: yes
 
   - name: Task number 2
     shell: echo Hello World!!!

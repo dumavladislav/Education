@@ -13,7 +13,8 @@
   - name: Task number 2
     shell: echo Hello World!!!
     register: results
-    failed_when: "'World' in results.stdout"
+#    failed_when: "'World' in results.stdout"
+    failed_when: results.rc == 0
 
   - debug:
       var: results

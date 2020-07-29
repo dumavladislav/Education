@@ -36,6 +36,7 @@
     poll: 0
 
   - name: Wait till my servers come up online
+    become: no
     wait_for:
       host: "{{ inventory_hostname }}"
       state: started

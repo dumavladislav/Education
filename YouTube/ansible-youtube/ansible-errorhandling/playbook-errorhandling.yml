@@ -1,0 +1,16 @@
+---
+
+- name: Error Handling Playbook example
+  hosts: all
+  become: yes
+
+  tasks:
+
+  - name: Task number 1
+    yum: name=treeeee state=latest
+
+  - name: Task number 2
+    shell: echo Hello World!!!
+
+  - name: Task number 3
+    shell: echo Privet Mir!!!

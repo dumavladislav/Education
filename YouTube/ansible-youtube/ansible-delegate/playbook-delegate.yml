@@ -43,3 +43,10 @@
       delay: 5
       timeout: 40
     delegate_to: 127.0.0.1        # Wait needs to be performed on master, because servers are being rebooted
+
+  # if the command must be ran only once (from only one inventory server), use "run_once".
+  # For example if you need to update/alter the database
+  - name: Update the database
+    shell: echo UPDATING THE DATABASE
+    run_once: true  # use "run_once" if you need to run once from any server no matter which one exactly. If server matters, use "delegate_to"
+    

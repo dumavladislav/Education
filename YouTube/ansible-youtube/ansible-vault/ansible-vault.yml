@@ -1,0 +1,20 @@
+---
+- name: Ansible Vault example
+  hosts: all
+  become: yes
+
+  vars:
+    adminPassword: PassW0rD123!
+
+  tasks:
+
+    - name: Tree installation
+      yum: name=tree state=latest
+
+    - name: Create config file
+      copy:
+        dest: ~/some.config
+        content:
+          port: 8890
+          user: petya
+          password: {{ adminPassword }}

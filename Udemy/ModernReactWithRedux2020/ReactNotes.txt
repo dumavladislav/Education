@@ -1,0 +1,31 @@
+ComponentDidMount - Great place to do the initialization including network requests. Recommended to do it here, not in the constructor
+
+ComponentDidUpdate - great place to do network requests if it is required on each update
+
+componentWillUnmount - place to do some cleaning
+
+
+
+/////////////////// Do some action by timer in Component
+componentDidMount() {
+            setInterval(() => {
+                this.setState({time: new Date().toLocaleTimeString()})    
+            }, 1000)
+        }
+		
+		
+		
+///  Decompose object
+
+const seasonConfig = {
+    summer: {
+        text: 'Let\'s hit the beach!',
+        iconName: 'sun'
+    },
+    winter: {
+        text: 'Burr.. It`s chilly!',
+        iconName: 'snowflake'
+    }
+}
+
+const {text, iconName} = seasonConfig[season];
